@@ -1,4 +1,4 @@
-module doraemon/TaskScheduler
+module github.com/Renjie-Woo/TaskScheduler
 
 go 1.23.4
 

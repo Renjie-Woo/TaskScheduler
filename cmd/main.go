@@ -1,10 +1,10 @@
 package main
 
 import (
-	"doraemon/TaskScheduler/internal/model"
-	log "doraemon/TaskScheduler/pkg/logger"
 	"flag"
 	"fmt"
+	"github.com/Renjie-Woo/TaskScheduler/internal/model"
+	log "github.com/Renjie-Woo/TaskScheduler/pkg/logger"
 )
 
 var (
@@ -21,11 +21,6 @@ func main() {
 	if *workDir == "" {
 		fmt.Println("没有配置有效工作目录，请使用--work_dir配置")
 		return
-		//*workDir, err = os.Getwd()
-		//if err != nil {
-		//	fmt.Println("没有配置有效工作目录，请使用--work_dir配置")
-		//	return
-		//}
 	}
 
 	if *cfgPath == "" {
@@ -35,7 +30,8 @@ func main() {
 
 	fmt.Printf(">>> 工作目录: %s\n>>> 配置文件路径: %s\n>>> 配置文件刷新频率: %d\n", *workDir, *cfgPath, *freshFreq)
 
-	var logger = log.NewConsoleLogger()
+	//var logger = log.NewConsoleLogger()
+	var logger = log.NewFileLoggerWithConsole("./log/mylog.txt")
 	defer func() {
 		err = logger.Sync()
 		if err != nil {

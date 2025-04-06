@@ -25,3 +25,20 @@ func RunPythonScript(scriptPath string, params []string) ([]byte, error) {
 	cmd := exec.Command("python3", params...)
 	return cmd.CombinedOutput()
 }
+
+func IsFileExist(filepath string) (bool, error) {
+	_, err := os.Stat(filepath)
+	if err == nil {
+		return true, nil
+	}
+
+	if os.IsNotExist(err) {
+		return false, nil
+	}
+
+	return false, err
+}
+
+func CreateFile(filepath string) {
+
+}

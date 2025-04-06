@@ -1,7 +1,7 @@
 package model
 
 import (
-	"doraemon/TaskScheduler/pkg/tool"
+	"github.com/Renjie-Woo/TaskScheduler/pkg/tool"
 	"time"
 )
 
